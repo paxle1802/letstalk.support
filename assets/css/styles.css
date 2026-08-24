@@ -1,12 +1,12 @@
-/* Citizens About Progress — site styles
+/* Let's Talk — site styles
    Plum and amber on a cool paper. Two columns on desktop: a fixed label rail
    on the left, content on the right; one column below 820px.
 
-   Deliberately unlike the rest of the portfolio. The programme is an
-   afterschool room for 25 kids in Springhill, Louisiana that runs on a
-   timetable, so the page is built around a numbered programme list and a real
-   schedule block rather than the prose-and-hairline-rules layout used
-   elsewhere. Different palette, different type pairing, different structure. */
+   Deliberately unlike the rest of the portfolio, whose one untested risk is a
+   shared visual fingerprint. The organisation's own wording is short and
+   declarative - a vision sentence, a mission sentence, a list of who it is
+   for - so the page is built to let those statements stand alone against the
+   rail, rather than the prose-and-hairline-rules layout used elsewhere. */
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap');
 
@@ -83,32 +83,29 @@ a:hover { color: var(--plum-700); }
   margin: 0 0 22px;
 }
 
-/* numbered programme list, two across on desktop */
-ol.programme { list-style: none; counter-reset: p; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 34px; }
-ol.programme li { counter-increment: p; padding-top: 16px; border-top: 1px solid var(--rule); }
-ol.programme li::before {
-  content: counter(p, decimal-leading-zero);
-  display: block;
+/* pull statements - the organisation's own vision and mission lines */
+p.statement {
   font-family: var(--heading);
-  font-size: .75rem;
-  font-weight: 600;
-  color: var(--amber-600);
-  letter-spacing: .1em;
-  margin-bottom: .5em;
+  font-weight: 500;
+  font-size: 1.14rem;
+  color: var(--plum-900);
+  line-height: 1.45;
+  padding-left: 18px;
+  border-left: 3px solid var(--amber-300);
+  margin: 0 0 1.1em;
 }
-ol.programme span { color: var(--muted); font-size: .95rem; }
 
-table.schedule { width: 100%; border-collapse: collapse; margin: 4px 0 0; }
-table.schedule th, table.schedule td { text-align: left; padding: 13px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-table.schedule th {
+ul.audience { list-style: none; margin: 0 0 34px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+ul.audience li {
   font-family: var(--heading);
-  font-size: .72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .12em;
+  font-size: .88rem;
+  font-weight: 500;
   color: var(--plum-700);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 7px 16px;
 }
-table.schedule td:last-child { color: var(--muted); }
 
 dl.facts { margin: 0; }
 dl.facts div { padding: 14px 0; border-bottom: 1px solid var(--rule); }
@@ -122,7 +119,6 @@ dl.facts dd { margin: 0; }
 @media (max-width: 820px) {
   .split { grid-template-columns: 1fr; gap: 14px; }
   .split__label { border-top: none; padding-top: 0; }
-  ol.programme { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 640px) {
   body { font-size: 17px; }
